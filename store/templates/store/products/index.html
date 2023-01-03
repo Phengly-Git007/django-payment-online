@@ -5,6 +5,12 @@
 {% endblock %}
 
 {% block content %}
+  <div class="py-3 bg-info">
+    <div class="container"> <a href="{% url 'home' %}" >Home</a> / 
+        <a href="{% url 'collections' %}" >Collections</a> /
+        {{ category_name.name }}
+    </div>
+  </div>
   <div class="container py-3">
     <div class="row">
       <div class="col-md-12">
@@ -13,19 +19,22 @@
         <div class="row">
           {% for product in products %}
             <div class="col-md-3 mb-3">
-              <a href="#" class="ref">
-                {% comment %} {% url 'collections/' product.slug %} {% endcomment %}
-                <div class="card">
-                  <div class="card-body">
+              <div class="card">
+                <div class="card-body">
+                  <a href="#" class="ref">
                     <div class="product-image">
-                      <img src="{{ product.product_image.url }}" alt="product-image" width="250px" height="250px" class="w-100" />
+                      <img src="{{ product.product_image.url }}" alt="product-image" width="250px" height="230px" class="w-100" />
                     </div>
                     <h6 class="text-center">{{ product.name }}</h6>
-                    <span class="float-start mx-3"><del>$ {{ product.original_price }}</del></span>
-                    <span class="float-end mx-3" style="color: brown;">$ {{ product.selling_price }}</span>
-                  </div>
+                  </a>
+                    <span class=" mx-3   float-start"><del>$ {{ product.original_price }}</del></span>
+                    <span class=" mx-3 float-end" style="color: brown;">$ {{ product.selling_price }}</span>
+                    <br>
+                    
                 </div>
-              </a>
+                <button type="button" class="btn btn-primary btn-block">Add To Cart</button>
+              </div>
+             
             </div>
           {% endfor %}
         </div>
