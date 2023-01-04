@@ -18,14 +18,10 @@
           {% for category in categories %}
             <div class="col-md-3 mb-3">
               <a href="{% url 'collections-view' category.slug %}" class="ref">
-                {% comment %} <div class="card">
-                  <div class="card-body"> {% endcomment %}
                     <div class="category-image">
                       <img src="{{ category.category_image.url }}" alt="category-image" width="200px" height="250px" class="w-100" />
                     </div>
                     <h6 class="text-center">{{ category.name }}</h6>
-                  {% comment %} </div>
-                </div> {% endcomment %}
               </a>
             </div>
           {% endfor %}

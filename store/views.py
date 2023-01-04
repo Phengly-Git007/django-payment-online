@@ -23,3 +23,15 @@ def collectionsView(request,slug):
     else:
         messages.warning(request,'category not found')
         return redirect('collections')
+    
+def productDetails(request, cat_slug,pro_slug):
+    if(Category.objects.filter(slug=cat_slug,status=0)):
+        if(Product.objects.filter(slug=pro_slug,status=0)):
+            products = Product.objects.filter(slug=pro_slug,status=0).first()
+            context = {'products': products}
+        else:
+            messages.error(request,'product not found')
+    else:
+        messages.error(request,'category not found')
+        return redirect('collections')
+    return render(request, 'store/products/detail.html',context)

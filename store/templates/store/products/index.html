@@ -19,9 +19,9 @@
         <div class="row">
           {% for product in products %}
             <div class="col-md-3 mb-3">
-              <div class="card">
+              <div class="card" style="background-color:gainsboro;">
                 <div class="card-body">
-                  <a href="#" class="ref">
+                  <a href="{% url 'product-details' product.category.slug product.slug %}" class="ref">
                     <div class="product-image">
                       <img src="{{ product.product_image.url }}" alt="product-image" width="250px" height="230px" class="w-100" />
                     </div>
@@ -42,4 +42,3 @@
     </div>
   </div>
 {% endblock %}
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores cumque illum recusandae neque et magni.</p>
