@@ -1,32 +1,33 @@
-{% extends 'store/layouts/main.html' %}
-{% load static %}
-{% block title %}
-  Collections
-{% endblock %}
-
-{% block content %}
+{% extends 'store/layouts/main.html' %} {% load static %} {% block title %}
+Collections {% endblock %} {% block content %}
 
 <div class="py-3 bg-info">
-    <div class="container "> <a href="{% url 'home' %}">Home</a> / Collections</div>
+  <div class="container"><a href="{% url 'home' %}">Home</a> / Collections</div>
 </div>
-  <div class="container py-3">
-    <div class="row">
-      <div class="col-md-12">
-        <h5>Collections</h5>
-        <hr />
-        <div class="row">
-          {% for category in categories %}
-            <div class="col-md-3 mb-3">
-              <a href="{% url 'collections-view' category.slug %}" class="ref">
-                    <div class="category-image">
-                      <img src="{{ category.category_image.url }}" alt="category-image" width="200px" height="250px" class="w-100" />
-                    </div>
-                    <h6 class="text-center">{{ category.name }}</h6>
-              </a>
+<div class="container py-3">
+  <div class="row">
+    <div class="col-md-12">
+      <h5>Collections</h5>
+      <hr />
+      <div class="row">
+        {% for category in categories %}
+        <div class="col-md-3 mb-3">
+          <a href="{% url 'collections-view' category.slug %}" class="ref">
+            <div class="category-image">
+              <img
+                src="{{ category.category_image.url }}"
+                alt="category-image"
+                width="200px"
+                height="250px"
+                class="w-100"
+              />
             </div>
-          {% endfor %}
+            <h6 class="text-center">{{ category.name }}</h6>
+          </a>
         </div>
+        {% endfor %}
       </div>
     </div>
   </div>
+</div>
 {% endblock %}
